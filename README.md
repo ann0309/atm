@@ -21,7 +21,16 @@ adb shell進手機，/data/data/应用程序包名/shared_prefs
 
 
 sharedPreferences:讓使用者在輸入一次資料後，下一次不用重新輸入
+sharedPreferences資料以key value方式儲存
 sharedPreferences commit和apply的差異為何？
+sharedPreferences 運作流程（以登入為例）：
+使用者做登入>>若使用者登入成功，將使用者輸入的值寫進xml>>下一次開啟app>>到xml中用key取得需要的值>>將取到的值顯示在畫面上>>畫面上可看到之前輸入的東西
+
+
+
+
+
+
 
 
 訊息匡：alertDialog
