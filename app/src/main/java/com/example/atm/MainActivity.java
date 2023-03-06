@@ -1,6 +1,10 @@
 package com.example.atm;
 
+import static androidx.constraintlayout.widget.ConstraintLayoutStates.TAG;
+
+import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -23,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     boolean logon=false;
-    private static final int REQUESTLOGIN=100;//之後不希望他改變值
+    private static final int REQUESTLOGIN=100;//static final ,使用大寫 之後不希望他改變值
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,47 +38,22 @@ public class MainActivity extends AppCompatActivity {
         if(!logon){
             Intent intent=new Intent(this,LoginActivity.class);
             launcher.launch(intent);
-//            startActivity(intent);
+//            startActivity(intent);//若使用這個，岸上一頁一樣會回到登入畫面
         }
-
-
+        getSharedPreferences("atm", MODE_PRIVATE);
     }
-ActivityResultLauncher <Intent> launcher=registerForActivityResult(
+ActivityResultLauncher <Intent> launcher=registerForActivityResult(//取代先前的startActivityResult
         new ActivityResultContracts.StartActivityForResult(),
         new ActivityResultCallback<ActivityResult>() {
-            @Override
+            @Override//複寫 control＋o  有複寫跟沒付寫一樣？
             public void onActivityResult(ActivityResult result) {//從loginactivity到MainActivity時會呼叫這個
-                if(result.getResultCode()==RESULT_OK){
-                    Log.d("loggggg", String.valueOf(RESULT_OK));
-                    Log.d("loggggg", String.valueOf(result));
-                }{
-                    finish();
+                if(result.getResultCode()==RESULT_OK){//如果正常登入
 
+//輸入logd +tab
                 }
             }
         }
 );
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-//
+
 
 }
