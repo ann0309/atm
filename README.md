@@ -2,8 +2,12 @@
 
 onActivityResult
 
-若從上一個Activity返回前一個Activity要攜帶資料，不一定要使用Intent，可以使用ActivityResult Api。
+若從上一個Activity返回前一個Activity要攜帶資料，不一定要使用Intent，可以使用ActivityResult Api(startActivityResult deprecated)。
 https://iter01.com/546500.html
+<img width="438" alt="截圖 2023-03-06 下午3 08 11" src="https://user-images.githubusercontent.com/65845037/223041840-8340b313-42cb-427f-b2e1-83bdbf2b9cf7.png">
+
+startActivity(intent)和startActivityResult差別
+
 
 步驟：
 若A返回到Ｂ
