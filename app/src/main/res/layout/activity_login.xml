@@ -34,6 +34,7 @@
         android:layout_marginBottom="32dp"
         android:text="account"
         android:textSize="34sp"
+
         app:layout_constraintBottom_toTopOf="@+id/inputName"
         app:layout_constraintStart_toStartOf="parent"
         tools:visibility="visible" />
@@ -45,6 +46,7 @@
         android:layout_marginBottom="308dp"
         android:ems="10"
         android:inputType="numberPassword"
+        android:hint="密碼"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/loginbtn" />
 
@@ -56,7 +58,8 @@
         android:layout_marginBottom="32dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+
+        android:hint="帳號"
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintStart_toStartOf="parent" />
 
