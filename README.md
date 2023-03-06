@@ -17,4 +17,15 @@ onActivityResult接收的參數是A畫面中setResult()所攜帶的資料
 ----------------------------------------------------------------
 
 查看sharepreference的資料：
-adb shell進手機，到data/data下的app的shared_pref下，會有對到app的xml檔案
+adb shell進手機，/data/data/应用程序包名/shared_prefs
+
+
+sharedPreferences:讓使用者在輸入一次資料後，下一次不用重新輸入
+sharedPreferences commit和apply的差異為何？
+
+
+訊息匡：alertDialog
+頁面底下的浮動訊息：toast
+
+
+Firebase連接：手機要聯網路，android studio左上角億登入firebase帳號
