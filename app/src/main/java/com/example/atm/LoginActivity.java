@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         remember_input=findViewById(R.id.rem_input);
 
             //從atm.xml設定檔中讀取資料出來
+            //若沒有從檔案中讀到東西，則預設輸入為null
             String remember_user = getSharedPreferences("atm", MODE_PRIVATE)
                     .getString("users", "");
             String remember_password = getSharedPreferences("atm", MODE_PRIVATE)

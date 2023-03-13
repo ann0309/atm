@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="functions">
+        <item>交易紀錄</item>
+        <item>餘額查詢</item>
+        <item>投資理財</item>
+        <item>網路連接測試</item>
+        <item>webview</item>
+        <item>小工具</item>
+        <item>guard開關</item>
+        <item>加密累</item>
+        <item>框架？？？</item>
+        <item>新增</item>
+        <item>刪除</item>
+        <item>修改</item>
+        <item>查詢</item>
+        <item>金流服務？？（好困難:(((</item>
+        <item>生物辨識</item>
+        <item>firebase crashlytics連接</item>
+        <item>拉拉啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</item>
+        <item>安眠書店</item>
+        <item>亞森羅蘋</item>
+
+
+
+    </array>
+</resources>
