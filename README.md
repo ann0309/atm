@@ -17,7 +17,15 @@ B:
 當A返回到Ｂ時，A會去呼叫onActivityResult方法
 onActivityResult接收的參數是A畫面中setResult()所攜帶的資料
 ----------------------------------------------------------------
-匿名類別？？？
+匿名類別？？？泛型？inflate????
+----------------------------------------------------------------
+### 快捷鍵：
+建構子,getter setter:command+N
+繼承:
+log：輸入logd+tab
+將區塊變成method:Command+Option+M 
+成為屬性(會移除private 及型態那些的。剩下名稱)：Command+Option+F
+
 ----------------------------------------------------------------
 
 查看sharepreference的資料：
@@ -42,3 +50,34 @@ sharedPreferences 運作流程（以登入為例）：
 
 
 Firebase連接：手機要聯網路，android studio左上角億登入firebase帳號
+
+
+
+----------------------------------------------------------------------
+String[] functions;  //是個String型態的陣列，固定長度
+List<String> functions;   //List ，只收集String型態的東西，不固定長度，集合的一種，資料可重複
+--------------------------------------------------------------------
+  Datasource-----Adapter----RecycleView
+  
+  
+  RecycleView:顯示資料用
+  Adapter:用來連接資料和RecycleView(UI)
+  
+  ViewHolder繼承RecyclerView.ViewHolder，想像這裡是儲存view的地方
+  ViewHolder為RecyclerView的內部類別
+  
+  
+  Adapterup 因為是抽像累，所以繼承他的RecycleViewAdapter需要去實作adapter的三個方法
+  onCreateViewHolder: 產生recycleView時會去呼叫
+  onBindViewHolder：設定一個格子裡要顯示的資料
+  getItemCount
+  
+  
+  
+  
+  
+  recycleView中的itemView是啥？
+  
+  
+  
+  
