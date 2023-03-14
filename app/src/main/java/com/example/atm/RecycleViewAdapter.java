@@ -13,8 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 //連接要顯示的data和recycleView的溝通橋樑
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     Context context;
-//    private List<String> functions;   //List ，只收集String型態的東西，不固定長度，集合的一種，資料可重複
-    private final String[] functions;  //是個String型態的陣列，固定長度
+    private final String[] functions;
     private View inflater;
     TextView viewItems;//items顯示位置
 
@@ -47,7 +46,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     //因為RecycleViewAdapter繼承的Adapter是抽象累，所以要實作他底下的三個方法
     @NonNull
     @Override
-    //建立ViewHolder實體
+    //建立ViewHolder實體，顯示資料之前會去呼叫他
     //MyViewHolder 在上面已經定義他繼承 RecyclerView.ViewHolder
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //simple_list_item_1.xml為內建的layout
