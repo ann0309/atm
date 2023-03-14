@@ -17,7 +17,15 @@ B:
 當A返回到Ｂ時，A會去呼叫onActivityResult方法
 onActivityResult接收的參數是A畫面中setResult()所攜帶的資料
 ----------------------------------------------------------------
-匿名類別？？？泛型？
+匿名類別？？？泛型？inflate????
+----------------------------------------------------------------
+### 快捷鍵：
+建構子,getter setter:command+N
+繼承:
+log：輸入logd+tab
+將區塊變成method:Command+Option+M 
+
+
 ----------------------------------------------------------------
 
 查看sharepreference的資料：
@@ -50,6 +58,7 @@ String[] functions;  //是個String型態的陣列，固定長度
 List<String> functions;   //List ，只收集String型態的東西，不固定長度，集合的一種，資料可重複
 --------------------------------------------------------------------
   Datasource-----Adapter----RecycleView
+  
   
   RecycleView:顯示資料用
   Adapter:用來連接資料和RecycleView(UI)
