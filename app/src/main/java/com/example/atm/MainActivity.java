@@ -2,16 +2,21 @@ package com.example.atm;
 
 import static androidx.constraintlayout.widget.ConstraintLayoutStates.TAG;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.media.Image;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.activity.result.ActivityResult;
@@ -21,6 +26,8 @@ import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -35,17 +42,24 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int REQUEST_PERMISSION = 100;
+    protected final String PERMISSION_NAME = Manifest.permission.CAMERA;
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     private View inflater;
     boolean logon = false;
     private List<Function> functions;
-    //    private String[] functions= null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
+
+
 
 
         if (!logon) {
@@ -57,9 +71,16 @@ public class MainActivity extends AppCompatActivity {
 
         //設定recycleView需要顯示的資料
         setupFunctions();
+        //建置RecycleView，連接adapter&RecycleView
+        setupRecycleView();
 
 
-//      Recycleview（viewholder，也就是放要顯示資料的地方）---------------------------------------------------------
+    }
+
+
+
+
+    private void setupRecycleView() {
         RecyclerView recyclerView = findViewById(R.id.recycleView);
         recyclerView.setHasFixedSize(true);                                   //設定固定大小
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this)); //設定recycleView的顯示樣式
@@ -69,9 +90,6 @@ public class MainActivity extends AppCompatActivity {
         IconAdapter adapter = new IconAdapter();
         //將recycleview和adapter關聯起來
         recyclerView.setAdapter(adapter);//給recyclerView一個adapter
-//        ------------------------------------------------------------------------------------------------------
-
-
     }
 
     private void setupFunctions() {
@@ -144,16 +162,46 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void itemClicked(Function function) {
-        Log.d("logggg", "itemClicked: " + function.getName());
-        switch (function.getIcon()) {
-            case R.drawable.anya:
+
+        switch (function.getName()) {
+            case "交易紀錄":
                 break;
-            case R.drawable.arxan:
+            case "餘額查詢":
                 break;
-            case R.drawable.bear:
+            case "投資理財":
                 break;
-            case R.drawable.simpson:
+            case "網路連接測試":
                 break;
+            case "webview":
+                break;
+            case "guard開關":
+                break;
+            case "小工具":
+                break;
+            case "加密累"://加密累
+                break;
+            case "框架???"://框架
+                break;
+            case "危險權限":
+//                Log.d("logggg", "itemClicked: " + function.getName());
+                Intent intent=new Intent();
+                startActivity(intent);
+                checkPermission();
+                break;
+        }
+    }
+
+    //檢查相機使用權限
+    private void checkPermission() {
+        int permission=ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
+        //若已得到使用者權限
+        if(permission== PackageManager.PERMISSION_GRANTED){//PERMISSION_GRANTED：已經取的權限
+            //打開相機功能
+            Toast.makeText(this, "已取得相機權限", Toast.LENGTH_SHORT).show();
+        }
+        else {//若沒有取得權限
+            //申請權限
+            requestPermissions(new String[] { PERMISSION_NAME }, REQUEST_PERMISSION);
         }
     }
 
@@ -169,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
     );
-//      ------------------------------------------------------------------------------------------------------
+
 
 
 }

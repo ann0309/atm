@@ -1,5 +1,5 @@
 package com.example.atm;
-
+//目前沒用了
 
 import android.content.Context;
 import android.view.LayoutInflater;

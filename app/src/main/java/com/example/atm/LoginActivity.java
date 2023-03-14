@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                                                 .putString("password", password.getText().toString())
                                                 .commit();
                                     }
-                                    Toast.makeText(LoginActivity.this, "登入成功", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginActivity.this, "登入ya", Toast.LENGTH_SHORT).show();
                                     setResult(RESULT_OK);//activity內建的方法和常數
                                     finish();
                                 }
