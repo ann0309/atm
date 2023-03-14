@@ -76,7 +76,7 @@ List<String> functions;   //List ，只收集String型態的東西，不固定�
   
   
   
-  
+  recycleView中的itemView是啥？
   
   
   
