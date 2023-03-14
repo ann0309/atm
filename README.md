@@ -79,5 +79,7 @@ List<String> functions;   //List ，只收集String型態的東西，不固定�
   recycleView中的itemView是啥？
   
   
+  //現去建立一個一般的class，之後再去extend他所需要的class
+  
   
   
