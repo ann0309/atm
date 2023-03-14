@@ -25,7 +25,7 @@ onActivityResult接收的參數是A畫面中setResult()所攜帶的資料
 log：輸入logd+tab
 將區塊變成method:Command+Option+M 
 成為屬性(會移除private 及型態那些的。剩下名稱)：Command+Option+F
-
+複寫：control+o
 ----------------------------------------------------------------
 
 查看sharepreference的資料：
