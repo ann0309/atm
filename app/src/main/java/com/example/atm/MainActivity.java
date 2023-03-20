@@ -42,8 +42,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int REQUEST_PERMISSION = 100;
-    protected final String PERMISSION_NAME = Manifest.permission.CAMERA;
+
+
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     private View inflater;
@@ -184,26 +184,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "危險權限":
 //                Log.d("logggg", "itemClicked: " + function.getName());
-                Intent intent=new Intent();
+                Intent intent=new Intent(this,PermissionActivity.class);
                 startActivity(intent);
-                checkPermission();
+
                 break;
         }
     }
 
-    //檢查相機使用權限
-    private void checkPermission() {
-        int permission=ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
-        //若已得到使用者權限
-        if(permission== PackageManager.PERMISSION_GRANTED){//PERMISSION_GRANTED：已經取的權限
-            //打開相機功能
-            Toast.makeText(this, "已取得相機權限", Toast.LENGTH_SHORT).show();
-        }
-        else {//若沒有取得權限
-            //申請權限
-            requestPermissions(new String[] { PERMISSION_NAME }, REQUEST_PERMISSION);
-        }
-    }
 
 
     //        LoginActivity轉換至MainActivity-------------------------------------------------------------------------

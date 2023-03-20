@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Log.d(TAG, "onDataChange: ");
                                     AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                                     builder.setTitle("登入失敗")
-                                            .setMessage("是不是忘記了")
+                                            .setMessage("是不是忘記了，老娘不讓你登入！")
                                             .setPositiveButton("是", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
