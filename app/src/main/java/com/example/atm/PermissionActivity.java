@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ import java.util.List;
 public class PermissionActivity extends AppCompatActivity {
     protected final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
     protected final String PERMISSION_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
-    protected final String PERMISSION_FILE = Manifest.permission.READ_EXTERNAL_STORAGE; //讀取外部儲存空間
+    protected final String PERMISSION_FILE = Manifest.permission.READ_EXTERNAL_STORAGE;     //讀取外部儲存空間
     protected final String PERMISSION_BLUETOOTH = Manifest.permission.BLUETOOTH;
     protected final String PERMISSION_INTERNET = Manifest.permission.INTERNET;
     private static final int REQUEST_PERMISSION = 100;
@@ -30,6 +32,7 @@ public class PermissionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permission);
+
 
         int[] checkList ={R.id.location,R.id.file,R.id.camera,R.id.bluetooth,R.id.internet};
 
@@ -45,13 +48,13 @@ public class PermissionActivity extends AppCompatActivity {
 
                     // 若有被選取
                     if(checkItem.isChecked())
-                        getPermission(v,i,checkList[i]);
+                        getPermission(v,i,checkList[i],checkList);
                 }
             }
         });
     }
 
-    private void getPermission(View view,int i,int checkedId) {
+    private void getPermission(View view,int i,int checkedId,int[] checkList) {
         String[] permissionList={PERMISSION_LOCATION,PERMISSION_FILE,PERMISSION_CAMERA,PERMISSION_BLUETOOTH,PERMISSION_INTERNET};
             int permission=0;
 
@@ -72,11 +75,38 @@ public class PermissionActivity extends AppCompatActivity {
                     case R.id.bluetooth:
                         permission= ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH);
                         break;
+
                 }
 
             //若已取得權限
             if(permission==PackageManager.PERMISSION_GRANTED){
                 Toast.makeText(PermissionActivity.this,"已取得權限",Toast.LENGTH_SHORT).show();
+                ScrollView scrollView=findViewById(R.id.scrollView);
+
+                TextView showResult=findViewById(R.id.permission_result);
+
+
+                    switch (checkedId){
+                        case R.id.internet:
+                            showResult.append("已取得網路權限\n");
+                            break;
+                        case R.id.file:
+                            showResult.append("已取得檔案權限\n");
+                            break;
+                        case R.id.location:
+                            showResult.append("已取得位置權限\n");
+                            break;
+                        case R.id.camera:
+                            showResult.append("已取得相機權限\n");
+                            break;
+                        case R.id.bluetooth:
+                            showResult.append("已取得藍芽權限\n");
+                            break;
+                        default:
+                            showResult.append("沒有打勾勾喔\n");
+                            break;
+                    }
+                scrollView.fullScroll(ScrollView.FOCUS_DOWN);
 
                 //將權限取得結果顯示在畫面上
 
