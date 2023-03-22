@@ -26,12 +26,8 @@ import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.atm.databinding.ActivityMainBinding;
@@ -54,13 +50,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-
-
-
-
 
         if (!logon) {
             Intent intent = new Intent(this, LoginActivity.class);
@@ -110,14 +99,13 @@ public class MainActivity extends AppCompatActivity {
         functions.add(new Function(funcs[12], R.drawable.anya));
         functions.add(new Function(funcs[13], R.drawable.bear));
         functions.add(new Function(funcs[14], R.drawable.chicken));
-        functions.add(new Function(funcs[15], R.drawable.oyster));
-        functions.add(new Function(funcs[16], R.drawable.simpson));
-        functions.add(new Function(funcs[17], R.drawable.arxan));
+//        functions.add(new Function(funcs[15], R.drawable.oyster));
+//        functions.add(new Function(funcs[16], R.drawable.simpson));
+//        functions.add(new Function(funcs[17], R.drawable.arxan));
     }
 
     //<>裡面要的viewHolder是自己定義的ViewHolder名稱
     public class IconAdapter extends RecyclerView.Adapter<IconAdapter.IconHolder> {
-
 
         @NonNull
         @Override
@@ -173,6 +161,8 @@ public class MainActivity extends AppCompatActivity {
             case "網路連接測試":
                 break;
             case "webview":
+                Intent webviewIntent=new Intent(this,WebViewActivity.class);
+                startActivity(webviewIntent);
                 break;
             case "guard開關":
                 break;
@@ -183,9 +173,8 @@ public class MainActivity extends AppCompatActivity {
             case "框架???"://框架
                 break;
             case "危險權限":
-//                Log.d("logggg", "itemClicked: " + function.getName());
-                Intent intent=new Intent(this,PermissionActivity.class);
-                startActivity(intent);
+                Intent permissionIntent=new Intent(this,PermissionActivity.class);
+                startActivity(permissionIntent);
 
                 break;
         }
