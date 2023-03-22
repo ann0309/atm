@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="檔案"
         android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/location"
         tools:layout_editor_absoluteY="253dp" />
 
