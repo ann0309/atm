@@ -19,6 +19,13 @@
         android:theme="@style/Theme.Atm"
         tools:targetApi="31">
         <activity
+            android:name=".FirebaseActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".WebViewActivity"
             android:exported="false">
             <meta-data

@@ -1,17 +1,11 @@
 package com.example.atm;
 
-import static androidx.constraintlayout.widget.ConstraintLayoutStates.TAG;
-
-import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.Image;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.view.LayoutInflater;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -31,6 +25,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.atm.databinding.ActivityMainBinding;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +44,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
+
 
         if (!logon) {
             Intent intent = new Intent(this, LoginActivity.class);
@@ -58,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         getSharedPreferences("atm", MODE_PRIVATE);
 
 
-        //設定recycleView需要顯示的資料
+
         setupFunctions();
         //建置RecycleView，連接adapter&RecycleView
         setupRecycleView();
@@ -66,25 +64,29 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
 
-
+    //建立RecycleView
     private void setupRecycleView() {
         RecyclerView recyclerView = findViewById(R.id.recycleView);
         recyclerView.setHasFixedSize(true);                                   //設定固定大小
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this)); //設定recycleView的顯示樣式
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));//設定recycleView的顯示樣式
         //定義adapter
 //        RecycleViewAdapter adapter=new RecycleViewAdapter(this);//建立物件時會去呼叫建構子
         IconAdapter adapter = new IconAdapter();
+
         //將recycleview和adapter關聯起來
         recyclerView.setAdapter(adapter);//給recyclerView一個adapter
     }
 
+
+
+    //設定recycleView需要顯示的資料
     private void setupFunctions() {
         functions = new ArrayList<>();
         String[] funcs = getResources().getStringArray(R.array.functions);  //取得xml中的item
-        functions.add(new Function(funcs[0], R.drawable.anya));            //把text和items加入到List中
+        functions.add(new Function(funcs[0], R.drawable.anya));            //把text和icon加入到List中
         functions.add(new Function(funcs[1], R.drawable.bear));
         functions.add(new Function(funcs[2], R.drawable.chicken));
         functions.add(new Function(funcs[3], R.drawable.oyster));
@@ -149,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //按下icon會做什麼事
     private void itemClicked(Function function) {
 
         switch (function.getName()) {
@@ -168,27 +171,32 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "小工具":
                 break;
-            case "加密累"://加密累
+            case "加密累":
                 break;
-            case "框架???"://框架
+            case "框架???":
+                break;
+            case "firebase crashlytics":
+                Intent firebaseIntent=new Intent(this,FirebaseActivity.class);
+                startActivity(firebaseIntent);
                 break;
             case "危險權限":
+                //透過Intent轉換至其他activity
                 Intent permissionIntent=new Intent(this,PermissionActivity.class);
                 startActivity(permissionIntent);
-
                 break;
         }
     }
 
 
 
-    //        LoginActivity轉換至MainActivity-------------------------------------------------------------------------
+    //        LoginActivity轉換至MainActivity
     ActivityResultLauncher<Intent> launcher = registerForActivityResult(//取代先前的startActivityResult
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override//複寫 control＋o  有複寫跟沒付寫一樣？
                 public void onActivityResult(ActivityResult result) {
-                    if (result.getResultCode() == RESULT_OK) {            //如果正常登入
+                    //如果正常登入
+                    if (result.getResultCode() == RESULT_OK) {
                     }
                 }
             }
