@@ -25,7 +25,7 @@ public class PermissionActivity extends AppCompatActivity {
     protected final String PERMISSION_BLUETOOTH = Manifest.permission.BLUETOOTH;
     protected final String PERMISSION_INTERNET = Manifest.permission.INTERNET;
     private static final int REQUEST_PERMISSION = 100;
-
+    TextView showResult;
 
 
     @Override
@@ -42,13 +42,27 @@ public class PermissionActivity extends AppCompatActivity {
         checkAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //迴圈檢查checkbox是否有勾選
+                boolean[] result={false,false,false,false,false};
+
+
+                //迴圈存入勾選結果  打勾 沒打勾 全部都沒勾
                 for(int i=0;i<checkList.length;i++){
                     CheckBox checkItem = findViewById(checkList[i]);
 
-                    // 若有被選取
-                    if(checkItem.isChecked())
+                    //判斷是否都沒勾選
+                    if(checkItem.isChecked()){
+                        result[i]=true;
+                    }
+
+                    if(result[i]==true){
                         getPermission(v,i,checkList[i],checkList);
+                    }
+                }
+
+                //若全部都沒勾選
+                if(result[0]==false&&result[1]==false&&result[2]==false&&result[3]==false&&result[4]==false){
+                    showResult=findViewById(R.id.permission_result);
+                    showResult.append("沒有打勾勾喔\n");
                 }
             }
         });
@@ -80,11 +94,11 @@ public class PermissionActivity extends AppCompatActivity {
 
             //若已取得權限
             if(permission==PackageManager.PERMISSION_GRANTED){
-                Toast.makeText(PermissionActivity.this,"已取得權限",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(PermissionActivity.this,"已取得權限",Toast.LENGTH_SHORT).show();
                 ScrollView scrollView=findViewById(R.id.scrollView);
 
-                TextView showResult=findViewById(R.id.permission_result);
-
+//                TextView showResult=findViewById(R.id.permission_result);
+                showResult=findViewById(R.id.permission_result);
 
                     switch (checkedId){
                         case R.id.internet:
@@ -102,9 +116,9 @@ public class PermissionActivity extends AppCompatActivity {
                         case R.id.bluetooth:
                             showResult.append("已取得藍芽權限\n");
                             break;
-                        default:
-                            showResult.append("沒有打勾勾喔\n");
-                            break;
+//                        default:
+//                            showResult.append("沒有打勾勾喔\n");
+//                            break;
                     }
                 scrollView.fullScroll(ScrollView.FOCUS_DOWN);
 
