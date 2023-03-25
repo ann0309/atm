@@ -72,7 +72,7 @@ List<String> functions;   //List ，只收集String型態的東西，不固定�
   onBindViewHolder：設定一個格子裡要顯示的資料
   getItemCount
   
-  
+    //現去建立一個一般的class，之後再去extend他所需要的class
   
   
   
@@ -82,4 +82,12 @@ List<String> functions;   //List ，只收集String型態的東西，不固定�
   //現去建立一個一般的class，之後再去extend他所需要的class
   
   
+  
+  
+  
+  
+  讀取json檔：
+  InputStream:將數據讀取到程式中
+  OutputStream:將數據由程式中輸出
+
   
