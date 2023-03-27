@@ -1,0 +1,784 @@
+ {
+    "globalConfiguration": {
+        "seed": 20221118,
+        "verbosityLevel": {
+            "global": 1
+        },
+        "nativeGuardsComponent": {
+            "disable": false
+        },
+        "charsetType": "ascii",
+        "keepSignatures": "proguard-rules.pro",
+        "exclude": [
+            {
+                "type": "class",
+                "name": "*"
+            }
+        ],
+        "include": [
+            {
+                "type": "class",
+                "name": "*"
+            }
+        ]
+    },
+    "guardConfiguration": {
+        "debugInfoStrip": {
+            "disable": false
+        },
+        "logStrip": {
+            "disable": false,
+            "safeMode": true
+        },
+        "renaming": {
+            "disable": false,
+            "renameInResources": true,
+            "renameInNativeLibraries": true,
+            "makeEverythingPublic": true
+        },
+        "classEncryption": {
+            "disable": false,
+            "debug": true,
+            "targets": [
+                "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc",
+                "com.fesc.mobile.twcbank.o2otrade.gcm.MyFcmListenerService",
+                "com.fesc.mobile.twcbank.o2otrade.gcm.RegistrationIntentService",
+                "com.fesc.mobile.twcbank.o2otrade.Login",
+                "com.fesc.mobile.twcbank.o2otrade.ui.QueryResultDetail",
+                "com.fesc.mobile.twcbank.o2otrade.ui.QueryResult",
+                "com.fesc.mobile.twcbank.o2otrade.ui.TradeLog",
+                "com.squareup.okhttp.CertificatePinner",
+                "com.fesc.mobile.twcbank.o2otrade.ui.ShopQRcode",
+                "com.fesc.mobile.twcbank.o2otrade.ui.MainBoard",
+                "com.akexorcist.screenshotdetection.ScreenshotDetectionDelegate$startScreenshotDetection$1",
+                "com.fesc.mobile.twcbank.o2otrade.ui.LoginFcmNotifyActivity",
+                "com.fesc.mobile.twcbank.o2otrade.ui.CaptureBarcode",
+                "com.fesc.mobile.twcbank.o2otrade.ui.BaseAppCompatActivity",
+                "com.fesc.mobile.twcbank.o2otrade.ui.NumericBoard",
+                "com.fesc.mobile.twcbank.o2otrade.ui.CaptureActivityHandler$State",
+                "com.fesc.mobile.twcbank.o2otrade.widgets.ClearEditText",
+                "com.fesc.mobile.twcbank.o2otrade.widgets.NumericKeyPad",
+                "com.fesc.mobile.twcbank.o2otrade.ui.ViewfinderView",
+                "com.fesc.mobile.twcbank.o2otrade.ui.NotifyMessage",
+                "com.fesc.mobile.twcbank.o2otrade.ui.DialerLayout",
+                "com.fesc.mobile.twcbank.o2otrade.widgets.OperationBar",
+                "com.fesc.mobile.twcbank.o2otrade.ui.DialerLayout",
+                "com.fesc.mobile.twcbank.o2otrade.ui.DigitsEditText",
+                "com.fesc.mobile.twcbank.o2otrade.widgets.DialerCallBar"
+            ]
+        },
+        "stringEncryption": {
+            "disable": false
+        },
+        "annotationEncryption": {
+            "disable": false,
+            "debug": true,
+            "targets": {
+                "exclude": [
+                    {
+                        "type": "class",
+                        "name": "kotlin.*"
+                    }
+                ],
+                "include": [
+                    {
+                        "type": "class",
+                        "name": "kotlin.Metadata"
+                    }
+                ]
+            }
+        },
+        "inlining": {
+            "disable": false
+        },
+        "staticMemberShuffling": {
+            "disable": false,
+            "safeMode": true
+        },
+        "operatorRemoval": {
+            "disable": false,
+            "exclude": [
+                {
+                    "type": "class",
+                    "name": "android.*"
+                },
+                {
+                    "type": "class",
+                    "name": "androidx.*"
+                },
+                {
+                    "type": "class",
+                    "name": "kotlinx.coroutines.*"
+                },
+                {
+                    "type": "class",
+                    "name": "kotlin.*"
+                }
+            ]
+        },
+        "controlFlowFlattening": {
+            "disable": false,
+            "safeMode": true,
+            "exclude": [
+                {
+                    "type": "class",
+                    "name": "com.google.*"
+                },
+                {
+                    "type": "class",
+                    "name": "android.*"
+                },
+                {
+                    "type": "class",
+                    "name": "okhttp3.CipherSuite*"
+                },
+                {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.ui.ShopQRcode.showQRCode"
+                },
+                {
+                    "type": "class",
+                    "name": "kotlinx.coroutines.*"
+                },
+                {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.Login.viewInit"
+                }
+            ]
+        },
+        "callHiding": {
+            "disable": false,
+            "targets": [
+                {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.*"
+                },
+                {
+                    "type": "method",
+                    "name": "okhttp3.tls.internal.InsecureExtendedTrustManager.checkServerTrusted"
+                },
+                {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.HttpConnection.setRefundAmountInfo"
+                },
+                {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.ui.NumericBoard.placePay"
+                },
+                {
+                    "type": "method",
+                    "name": "com.squareup.okhttp.CertificatePinner.check"
+                },
+                {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.ui.ShopQRcode.downloadShopQRCode"
+                },
+                {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.Login.checkServerAppVersion"
+                },
+                {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.ui.CaptureBarcode.resetStatusView"
+                }
+            ]
+        },
+        "resourceEncryption": {
+            "disable": false,
+            "debug": true,
+            "files": [
+                "assets/config.properties"
+            ]
+        },
+        "literalHiding": {
+            "disable": false
+        },
+        "resourceVerification": [
+            {
+                "name": "rvg_1",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 50,
+                "invocationLocations": [
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.Login.onCreate"
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify01"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                },
+                "files": [
+                    "AndroidManifest.xml",
+                    "assets/config.properties"
+                ]
+            }
+        ],
+        "debuggerDetection": [
+            {
+                "name": "ddg_1",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "invocationLocations": [
+                    {
+                        "type": "periodic",
+                        "interval": 10,
+                        "initialDelay": 1
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify02"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                }
+            },
+            {
+                "name": "ddg_2",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "invocationLocations": [
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.MainBoard.onResume"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.CaptureBarcode.onResume"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.ShopQRcode.downloadShopQRCode"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.google.crypto.tink.subtle.AesCtrHmacStreaming$AesCtrHmacStreamDecrypter.decryptSegment"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.google.crypto.tink.subtle.AesCtrHmacStreaming$AesCtrHmacStreamEncrypter.encryptSegment"
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify02"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                }
+            },
+            {
+                "name": "ddg_3",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "invocationLocations": [
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.QueryResult.listQueryResultNull"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.QueryResult.listQueryResult"
+                    },
+                    {
+                        "type": "method",
+                        "name": "androidx.appcompat.widget.Toolbar.setNavigationOnClickListener"
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify02"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                }
+            }
+        ],
+        "emulatorDetection": [
+            {
+                "name": "edg_1",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 50,
+                "invocationLocations": [
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.Login.checkRememberAcount"
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify03"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                }
+            },
+            {
+                "name": "edg_2",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 50,
+                "invocationLocations": [
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.LoginFcmNotifyActivity.checkNetworkConnected"
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify03"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                }
+            }
+        ],
+        "rootDetection": [
+            {
+                "name": "rdg_1",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 75,
+                "invocationLocations": [
+                    {
+                        "type": "periodic",
+                        "interval": 45,
+                        "initialDelay": 1
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify04"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                },
+                "detectMagiskHide": true,
+                "detectZygisk": true,
+                "detectRootManagementApps": true,
+                "detectRootHidingApps": true,
+                "detectRootRequiringApps": true
+            },
+            {
+                "name": "rdg_2",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 75,
+                "invocationLocations": [
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.QueryResultDetail.onResume"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.QueryResultDetail.onCreateOptionsMenu"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.CaptureBarcode.resetStatusView"
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify04"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                },
+                "detectMagiskHide": true,
+                "detectZygisk": true,
+                "detectRootManagementApps": true,
+                "detectRootHidingApps": true,
+                "detectRootRequiringApps": true
+            },
+            {
+                "name": "rdg_3",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 75,
+                "invocationLocations": [
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.ShopQRcode.findById"
+                    },
+                    {
+                        "type": "method",
+                        "name": "androidx.appcompat.widget.Toolbar.setNavigationOnClickListener"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.MainBoard.onResume"
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify04"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                },
+                "detectMagiskHide": true,
+                "detectZygisk": true,
+                "detectRootManagementApps": true,
+                "detectRootHidingApps": true,
+                "detectRootRequiringApps": true
+            }
+        ],
+        "hookDetection": [
+            {
+                "name": "hdg_2",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 75,
+                "invocationLocations": [
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.utils.HttpConnection.setRefundAmountInfo"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.utils.HttpConnection.setAmountInfo"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.utils.Util.showAlert"
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify05"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                },
+                "detectHookInstalled": true,
+                "detectMagiskHiddenModules": true
+            },
+            {
+                "name": "hdg_1",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 75,
+                "invocationLocations": [
+                    {
+                        "type": "periodic",
+                        "interval": 45,
+                        "initialDelay": 2
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify05"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                },
+                "detectHookInstalled": true,
+                "detectMagiskHiddenModules": true
+            },
+            {
+                "name": "hdg_3",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 75,
+                "invocationLocations": [
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.ShopQRcode.findById"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.utils.HttpConnection.setCancelInfo"
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify05"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                },
+                "detectHookInstalled": true,
+                "detectMagiskHiddenModules": true
+            }
+        ],
+        "dynamicInstrumentationDetection": [
+            {
+                "name": "fdg_1",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 75,
+                "invocationLocations": [
+                    {
+                        "type": "periodic",
+                        "interval": 50,
+                        "initialDelay": 1
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify06"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                },
+                "frida": {
+                    "detectFridaPresence": {},
+                    "detectMethodHooking": {
+                        "include": [
+                            {
+                                "type": "method",
+                                "name": "com.fesc.mobile.twcbank.o2otrade.utils.CommonFunc.getSHA256"
+                            },
+                            {
+                                "type": "method",
+                                "name": "com.fesc.mobile.twcbank.o2otrade.utils.HttpConnection.setRequestUrl"
+                            },
+                            {
+                                "type": "method",
+                                "name": "com.squareup.okhttp.CertificatePinner.check"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "fdg_2",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 75,
+                "invocationLocations": [
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.Login.checkServerAppVersion"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.MainBoard.onResume"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.CaptureBarcode.onResume"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.QueryResultDetail.makeSureAlert"
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify06"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                },
+                "frida": {
+                    "detectFridaPresence": {},
+                    "detectMethodHooking": {
+                        "include": [
+                            {
+                                "type": "method",
+                                "name": "com.squareup.okhttp.internal.tls.OkHostnameVerifier.verify"
+                            },
+                            {
+                                "type": "method",
+                                "name": "okhttp3.tls.internal.InsecureExtendedTrustManager.checkServerTrusted"
+                            },
+                            {
+                                "type": "method",
+                                "name": "com.fesc.mobile.twcbank.o2otrade.utils.HttpConnection.setRefundAmountInfo"
+                            },
+                            {
+                                "type": "method",
+                                "name": "com.fesc.mobile.twcbank.o2otrade.ui.CaptureBarcode.handleDecode"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "fdg_3",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 75,
+                "invocationLocations": [
+                    {
+                        "type": "method",
+                        "name": "androidx.appcompat.widget.Toolbar.setNavigationOnClickListener"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.ShopQRcode.downloadShopQRCode"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.ui.QueryResult.listQueryResult"
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify06"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                },
+                "frida": {
+                    "detectFridaPresence": {},
+                    "detectMethodHooking": {
+                        "include": [
+                            {
+                                "type": "method",
+                                "name": "com.squareup.okhttp.Handshake.get"
+                            },
+                            {
+                                "type": "method",
+                                "name": "com.fesc.mobile.twcbank.o2otrade.utils.HttpConnection.setCancelInfo"
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "virtualizationDetection": [
+            {
+                "name": "vdg_1",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 50,
+                "invocationLocations": [
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.Login.onCreate"
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify09" 
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                }
+            }
+        ],
+        "virtualControlDetection": [
+            {
+                "name": "vcdg_1",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 75,
+                "invocationLocations": [
+                    {
+                        "type": "periodic",
+                        "interval": 20,
+                        "initialDelay": 5
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify10"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                }
+            }
+        ]
+        ,
+        "checksum": [
+            {
+                "name": "csg_1",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 75,
+                "invocationLocations": [
+                    {
+                        "type": "startup",
+                        "initialDelay": 1
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify07"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                }
+            },
+            {
+                "name": "csg_2",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "inlineProbability": 75,
+                "invocationLocations": [
+                    {
+                        "type": "method",
+                        "name": "okhttp3.tls.internal.InsecureExtendedTrustManager.checkServerTrusted"
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.Login.didAgreeKeepData"
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify07"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                }
+            }
+        ],
+        "signatureCheck": [
+            {
+                "name": "scg_1",
+                "disable": false,
+                "debug": true,
+                "executeOnBackgroundThread": true,
+                "signaturePublicKeySHA256": [
+                    "AD0A82F02F580935373C0AF84DECAFBF4CFB9008987E91F284C842A6B09BC634"
+                ],
+                "invocationLocations": [
+                    {
+                        "type": "startup",
+                        "initialDelay": 1
+                    },
+                    {
+                        "type": "method",
+                        "name": "com.fesc.mobile.twcbank.o2otrade.Login.viewInit"
+                    }
+                ],
+                "tamperAction": {
+                    "type": "method",
+                    "name": "com.fesc.mobile.twcbank.o2otrade.utils.AProguardFunc.tcbVerify08"
+                },
+                "nonTamperAction": {
+                    "type": "doNothing"
+                }
+            }
+        ]
+    }
+}

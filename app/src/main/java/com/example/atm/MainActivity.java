@@ -1,9 +1,6 @@
 package com.example.atm;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.media.Image;
 import android.os.Bundle;
 
 import android.view.View;
@@ -16,7 +13,6 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,11 +26,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class MainActivity extends AppCompatActivity {
-
-
-
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     private View inflater;
@@ -101,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         functions.add(new Function(funcs[12], R.drawable.anya));
         functions.add(new Function(funcs[13], R.drawable.bear));
         functions.add(new Function(funcs[14], R.drawable.chicken));
-//        functions.add(new Function(funcs[15], R.drawable.oyster));
+        functions.add(new Function(funcs[15], R.drawable.oyster));
 //        functions.add(new Function(funcs[16], R.drawable.simpson));
 //        functions.add(new Function(funcs[17], R.drawable.arxan));
     }
@@ -184,12 +176,16 @@ public class MainActivity extends AppCompatActivity {
                 Intent permissionIntent=new Intent(this,PermissionActivity.class);
                 startActivity(permissionIntent);
                 break;
+            case "json解析":
+                Intent jsonIntent=new Intent(this,jsonActivity.class);
+                startActivity(jsonIntent);
+                break;
         }
     }
 
 
 
-    //        LoginActivity轉換至MainActivity
+    //LoginActivity轉換至MainActivity
     ActivityResultLauncher<Intent> launcher = registerForActivityResult(//取代先前的startActivityResult
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {

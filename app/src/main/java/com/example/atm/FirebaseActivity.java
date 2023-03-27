@@ -15,9 +15,6 @@ public class FirebaseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_firebase);
 
 
-
-
-
         Button crashButton = new Button(this);
         crashButton.setText("Test Crash");
         crashButton.setOnClickListener(new View.OnClickListener() {
@@ -32,4 +29,15 @@ public class FirebaseActivity extends AppCompatActivity {
 
 
     }
+//    public static void sampleTamper()
+//    {
+//        //可用system.exit(0);
+//        //建議可讓記憶體塞爆退出,讓攻擊方不知道為何退出
+//        for (int i = 1;; i += 100)
+//        {
+//            int[] arrayOfInt = { i, i };
+//            ((float[][]) Array.newInstance(Float.TYPE, arrayOfInt));
+//        }
+//    }
+
 }

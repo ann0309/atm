@@ -66,6 +66,9 @@ public class PermissionActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+
     }
 
     private void getPermission(View view,int i,int checkedId,int[] checkList) {
