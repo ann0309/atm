@@ -3,7 +3,6 @@ package com.example.atm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import org.json.JSONObject;
 
@@ -13,7 +12,12 @@ public class jsonActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json);
-        getGsByFile();
+
+        //getJsonFromUrl必須是static
+        //沒有建立物件之前，non static的東西並不存在，但是static會一直存在
+        JsonUtils.getJsonFromUrl();
+
+
     }
 
 
@@ -21,7 +25,7 @@ public class jsonActivity extends AppCompatActivity {
     public String getGsByFile(){
         Guardspec gsContent=new Guardspec();
         //拿到json裡面的資料，存成string
-        String jsonFileString = utils.getJsonFromAssets(getApplicationContext(), "guardspec.json");
+        String jsonFileString = JsonUtils.getJsonFromAssets(getApplicationContext(), "guardspec.json");
 
         //將取到的json字串，以指定的key拿到其value
         try{
@@ -39,4 +43,8 @@ public class jsonActivity extends AppCompatActivity {
         }
         return gsContent.guardConfiguration;
     }
+
+
+
+
 }
