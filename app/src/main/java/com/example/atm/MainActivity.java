@@ -29,7 +29,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
-    private FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
     private View inflater;
     boolean logon = false;
     private List<Function> functions;
@@ -37,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
 
@@ -45,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             launcher.launch(intent);
         }
-
-        //取得上一次登入時的儲存資料
         getSharedPreferences("atm", MODE_PRIVATE);
 
 
@@ -58,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    private FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
 
     //建立RecycleView
@@ -73,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
         //將recycleview和adapter關聯起來
         recyclerView.setAdapter(adapter);//給recyclerView一個adapter
     }
+
+
 
     //設定recycleView需要顯示的資料
     private void setupFunctions() {
