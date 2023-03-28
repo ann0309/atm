@@ -20,7 +20,6 @@ public class jsonActivity extends AppCompatActivity {
 
     }
 
-
     //將json格式轉存到java物件中
     public String getGsByFile(){
         Guardspec gsContent=new Guardspec();

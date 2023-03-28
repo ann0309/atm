@@ -15,8 +15,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class JsonUtils {
-
-
     //從json檔案中取到字串
     static String getJsonFromAssets(Context context,String fileName){
         String jsonString;
