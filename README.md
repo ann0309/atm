@@ -92,3 +92,19 @@ List<String> functions;   //List ，只收集String型態的東西，不固定�
   OutputStream:將數據由程式中輸出
 
   
+
+
+
+
+
+
+
+firebase permission denied
+{
+  "rules": {
+    ".read": "true",  // 2023-4-2 now < 1680364800000
+    ".write": "true",  // 2023-4-2 now < 1680364800000
+  }
+}
+
+https://stackoverflow.com/questions/40942493/android-firebase-database-error-permission-denied
