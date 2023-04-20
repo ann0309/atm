@@ -18,7 +18,6 @@ public class jsonActivity extends AppCompatActivity {
         JsonUtils.getJsonFromUrl();
 
 
-
     }
 
 

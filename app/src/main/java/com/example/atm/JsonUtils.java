@@ -91,8 +91,6 @@ public class JsonUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return data;
     }
-
 }
