@@ -6,7 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -58,47 +60,41 @@ public class LoginActivity extends AppCompatActivity {
                 String user = name.getText().toString();
                 String passwd = password.getText().toString();
 
-                FirebaseDatabase.getInstance().getReference("users").child("ann").child("password")//取道firebase中，user下得ann的password值
-                        .addListenerForSingleValueEvent(new ValueEventListener() {//addListenerForSingleValueEvent括號裡面叫做匿名類別
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                String pw = snapshot.getValue().toString();//option+enter來轉型為字串 ,或是用.toString
 
-                                if (pw.equals(passwd)) {
-                                    if(remember_input.isChecked()){
-                                        //將資料寫進xml設定檔
-                                        SharedPreferences pref = getSharedPreferences("atm", MODE_PRIVATE);//創建一個SharedPreferences物件
-                                        //取得編輯器物件
-                                        pref.edit()
-                                                .putString("users", name.getText().toString())
-                                                .putString("password", password.getText().toString())
-                                                .commit();
-                                    }
-                                    Toast.makeText(LoginActivity.this, "登入ya", Toast.LENGTH_SHORT).show();
-                                    setResult(RESULT_OK);//activity內建的方法和常數
-                                    finish();
-                                }
-                                else {
-                                    //alert dialog登入失敗
-                                    Log.d(TAG, "onDataChange: ");
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                    builder.setTitle("登入失敗")
-                                            .setMessage("是不是忘記了，老娘不讓你登入！")
-                                            .setPositiveButton("是", new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialog, int which) {
-                                                    //關閉這個提示框
-                                                    dialog.dismiss();
-                                                }
-                                            })
-                                            .create().show();
-                                }
-                            }
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        });
+          //option+enter來轉型為字串 ,或是用.toString
+                if (user.equals("ann")&&passwd.equals("309")) {
+                    if(remember_input.isChecked()){
+                        //將資料寫進xml設定檔
+                        SharedPreferences pref = getSharedPreferences("atm", MODE_PRIVATE);//創建一個SharedPreferences物件
+                        //取得編輯器物件
+                        pref.edit()
+                                .putString("users", name.getText().toString())
+                                .putString("password", password.getText().toString())
+                                .commit();
+                    }
+                    Toast.makeText(LoginActivity.this, "登入ya", Toast.LENGTH_SHORT).show();
+//                                    setResult(RESULT_OK);//activity內建的方法和常數
+
+                    Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else {
+                    //alert dialog登入失敗
+                    Log.d(TAG, "onDataChange: ");
+                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                    builder.setTitle("登入失敗")
+                            .setMessage("是不是忘記了，老娘不讓你登入！")
+                            .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //關閉這個提示框
+                                    dialog.dismiss();
+                                }
+                            })
+                            .create().show();
+                }
             }
         });
     }

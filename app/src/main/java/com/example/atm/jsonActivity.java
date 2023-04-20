@@ -18,7 +18,12 @@ public class jsonActivity extends AppCompatActivity {
         JsonUtils.getJsonFromUrl();
 
 
+
+
+
+
     }
+
 
     //將json格式轉存到java物件中
     public String getGsByFile(){

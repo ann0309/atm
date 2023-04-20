@@ -36,15 +36,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
 
 
 
-        if (!logon) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            launcher.launch(intent);
-        }
+//        if (!logon) {
+//            Intent intent = new Intent(this, LoginActivity.class);
+//            launcher.launch(intent);
+//        }
         getSharedPreferences("atm", MODE_PRIVATE);
 
 
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+//    private FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
 
     //建立RecycleView
@@ -185,18 +184,31 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    //LoginActivity轉換至MainActivity
-    ActivityResultLauncher<Intent> launcher = registerForActivityResult(//取代先前的startActivityResult
-            new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override//複寫 control＋o  有複寫跟沒付寫一樣？
-                public void onActivityResult(ActivityResult result) {
-                    //如果正常登入
-                    if (result.getResultCode() == RESULT_OK) {
-                    }
-                }
-            }
-    );
+
+    //onActivityResult是指跳轉回來此activity時，intent會帶result資料回來
+    //onActivityResult沒有跳轉的功能
+    //一開始初始為MainActivity, 如果發現沒有登入，才跳轉到LoginActivity
+    //登入完後跳轉到MainActivity
+    //但是現在初始activity為loginActivity，登入後直接到MainActovity
+    //所以不需要攜帶資料
+
+
+//    ActivityResultLauncher<Intent> launcher = registerForActivityResult(//取代先前的startActivityResult
+//            new ActivityResultContracts.StartActivityForResult(),
+//            new ActivityResultCallback<ActivityResult>() {
+//                @Override//複寫 control＋o  有複寫跟沒付寫一樣？
+//                public void onActivityResult(ActivityResult result) {
+//                    //如果正常登入
+//                    if (result.getResultCode() == RESULT_OK) {
+//                    }
+//                    else{//如果登入不成功，按下返回鍵會結束當前activity
+//                        finish();
+////                        MainActivity.this.onDestroy();//閃退
+////                        System.exit(0);
+//                    }
+//                }
+//            }
+//    );
 
 
 

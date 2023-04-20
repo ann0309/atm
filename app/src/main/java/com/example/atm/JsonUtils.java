@@ -45,7 +45,7 @@ public class JsonUtils {
         Thread thread = new Thread(new Runnable() {
             @Override public void run() {
                 //json 資料的網址
-                String urlString="https://apiservice.mol.gov.tw/OdService/rest/datastore/A17000000J-030245-4Ml";//以後需要用加密連線
+                String urlString="https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json"; //以後用加密連線
                 try {
                     URL url=new URL(urlString);
                     //建立和url的連接，尚未連接
