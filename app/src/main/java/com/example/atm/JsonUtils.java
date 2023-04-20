@@ -64,7 +64,6 @@ public class JsonUtils {
                         Log.d("loggggg", result);
                         inputStream.close();
                     }
-
                 }//若try裡執行到某一行出錯，會轉至做catch裡的事情
                 catch (IOException e) {
                     e.printStackTrace();
