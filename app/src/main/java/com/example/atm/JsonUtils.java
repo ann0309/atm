@@ -8,13 +8,27 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.loader.content.AsyncTaskLoader;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 
 public class JsonUtils {
+    //存放轉換轉換至string的資料
+    static String data="";
+    private static String[] result=new String[]{};
+    static byte[] byteArray = new byte[1024];
+
     //從json檔案中取到字串
     static String getJsonFromAssets(Context context,String fileName){
         String jsonString;
@@ -36,6 +50,11 @@ public class JsonUtils {
         }
         return jsonString;
     }
+
+
+
+
+
 
     //從url中取到json資料
     public static void getJsonFromUrl(){
@@ -60,8 +79,14 @@ public class JsonUtils {
                     if(responseCode==HttpURLConnection.HTTP_OK){
                         InputStream inputStream=conn.getInputStream(); //????
 
-                        String result=convertStreamToString(inputStream);
-                        Log.d("loggggg", result);
+
+
+                        //json url轉為String
+                        data=convertStreamToString(inputStream);
+
+
+                        //字串轉JsonObject或JsonArray，並透過key取道value
+                        getJsonValue(data);
                         inputStream.close();
                     }
                 }//若try裡執行到某一行出錯，會轉至做catch裡的事情
@@ -70,13 +95,50 @@ public class JsonUtils {
                 }
             }
         });
+
         thread.start();
     }
 
-    //InputStream轉string
+    private static void getJsonValue(String data) {
+        //建數個個動態陣列
+//        ArrayList location = new ArrayList();
+//        ArrayList area = new ArrayList();
+
+
+        //把result裡面的東西轉成jsonobject
+        try {
+            //存放轉換成jsonArray和JsonObject的json字串
+            JSONArray jsonArray = new JSONArray(data);
+//            JSONObject jsonResult=new JSONObject(data);  //因為url格式為array，所以不能用object來做
+
+            //取道json資料的第一筆
+            JSONObject row=jsonArray.getJSONObject(0);
+
+            //取道第一筆資料中的一個value
+            Log.d("loggggg", "一筆資料：:"+row);
+
+            String ID= row.getString("sno") ;
+            String name= row.getString("sna") ;
+            String area= row.getString("sarea") ;
+            String addr= row.getString("sarea") ;
+//            Date updateTime= row.getd("srcUpdateTime");
+
+            Log.d("loggggg", "ID:"+row.getString("sno"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+//        把已經轉成jsonobject的資料存到YoubikeData裡個別的屬性
+//                將個別的屬性存到動態陣列裡
+    }
+
+
+    //InputStream(Json Url資料) 轉string陣列
+    //資料為JsonArray形式，數組
+    //JsonArray裡有很多個JsonObject
     static String convertStreamToString(InputStream is) {
-        //存放轉換轉換至string的資料
-        String data="";
+
+        //記錄buffer的長度
+        int len= 0;
 
         //建立ByteArrayOutputStream
         ByteArrayOutputStream result = new ByteArrayOutputStream();
@@ -84,13 +146,18 @@ public class JsonUtils {
         //建立一個1024byte的陣列
         byte[] buffer = new byte[1024];
         try {
-            for (int length; (length = is.read(buffer)) != -1; ) {
-                result.write(buffer, 0, length);
+            //若讀到沒有更多資料了（-1）
+            while ((len=is.read(buffer,0,buffer.length))!=-1){
+                result.write(buffer,0,len);
             }
-            data  = result.toString("UTF-8");
+            //轉為位元陣列再轉字串
+            data=new String(result.toByteArray(),"UTF-8" );
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+
         return data;
-    }
-}
+    }}
+

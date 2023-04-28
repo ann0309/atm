@@ -3,11 +3,15 @@ package com.example.atm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import org.json.JSONObject;
 
 public class jsonActivity extends AppCompatActivity {
-
+    //設定ListView 資料
+//    private String[] fruit_name=new String[]{"Apple","Banana","Orange","Grape","Strawberry"};
+    private static String[] strArray ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +20,20 @@ public class jsonActivity extends AppCompatActivity {
         //getJsonFromUrl必須是static
         //沒有建立物件之前，non static的東西並不存在，但是static會一直存在
         JsonUtils.getJsonFromUrl();
+
+
+        //顯示json資料
+
+
+//        //抓到ListView UI
+//        ListView jsonListView=findViewById(R.id.jsonListView);
+//        //建立adapter，把資料放到ListView上面
+//        ArrayAdapter<String> adapter=
+//                new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,strArray);
+//        jsonListView.setAdapter(adapter);
+
+
+
 
 
     }
