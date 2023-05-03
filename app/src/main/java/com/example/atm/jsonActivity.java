@@ -3,6 +3,7 @@ package com.example.atm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -10,7 +11,7 @@ import org.json.JSONObject;
 
 public class jsonActivity extends AppCompatActivity {
     //設定ListView 資料
-//    private String[] fruit_name=new String[]{"Apple","Banana","Orange","Grape","Strawberry"};
+    private String[] jsonResult=new String[]{};
     private static String[] strArray ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +20,16 @@ public class jsonActivity extends AppCompatActivity {
 
         //getJsonFromUrl必須是static
         //沒有建立物件之前，non static的東西並不存在，但是static會一直存在
-        JsonUtils.getJsonFromUrl();
+        try {
+            jsonResult=JsonUtils.getJsonFromUrl();
+            Log.d("logggg", jsonResult[1]);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
+        while(jsonResult!=null){
+
+        }
 
         //顯示json資料
 
@@ -61,8 +70,4 @@ public class jsonActivity extends AppCompatActivity {
         }
         return gsContent.guardConfiguration;
     }
-
-
-
-
 }
