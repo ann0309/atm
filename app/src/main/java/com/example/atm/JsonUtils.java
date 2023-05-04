@@ -12,14 +12,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class JsonUtils {
     //存放轉換轉換至string的資料
     static String data="";
-    private static String[] result=new String[]{};
-    static String[] fruit_name=new String[]{"Apple","Banana","Orange","Grape","Strawberry"};
     //建立接回傳資料的陣列
-    static String[] returnData;
+
 
     //從json檔案中取到字串
     static String getJsonFromAssets(Context context,String fileName){
@@ -47,7 +47,6 @@ public class JsonUtils {
     //從url中取到json資料
     public static String[] getJsonFromUrl() throws InterruptedException {
 
-        // android不允許網路連線在mainthread執行
         // 另外開一個thread做事情
         // 創建線程並啟動
         MyThread myThread = new MyThread();
@@ -63,44 +62,9 @@ public class JsonUtils {
         return result;
     }
 
-    //拿到轉換成string型態的json資料後，取得多筆資料的key的value
-    public static String[] getJsonValue(String data) {
-        //建數個個動態陣列
-        ArrayList location = new ArrayList();
-        ArrayList area = new ArrayList();
 
 
-        //把result裡面的東西轉成jsonobject
-        try {
-            //存放轉換成jsonArray和JsonObject的json字串
-            JSONArray jsonArray = new JSONArray(data);
-            //JSONObject jsonResult=new JSONObject(data);  //因為url格式為array，所以不能用object來做
-
-            //取道json資料的第一筆
-            JSONObject row=jsonArray.getJSONObject(0);
-
-
-            Log.d("loggggg", "一筆資料：:"+row);
-            //取道第一筆資料中的一個value
-            String ID= row.getString("sno");
-            String name= row.getString("sna");
-            String area= row.getString("sarea");
-            String addr= row.getString("ar");
-
-            fruit_name[0]=ID;
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-//        把已經轉成jsonobject的資料存到YoubikeData裡個別的屬性
-//        將個別的屬性存到動態陣列裡
-
-        return fruit_name;
-
-    }
-
-
-    //InputStream(Json Url資料) 轉string陣列
+    //InputStream(Json Url資料) 轉字串
     //資料為JsonArray形式，數組
     //JsonArray裡有很多個JsonObject
     static String convertStreamToString(InputStream is) {
@@ -124,8 +88,37 @@ public class JsonUtils {
             e.printStackTrace();
         }
 
-
-
         return data;
-    }}
+    }
+
+    //拿到轉換成string型態的json資料後，取得多筆資料的key的value
+    public static ArrayList<HashMap<String, Object>> getJsonValue(String data) {
+        //放多筆資料
+        ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+
+        //把result裡面的東西轉成jsonobject
+        try {
+            //存放轉換成jsonArray和JsonObject的json字串
+            JSONArray jsonArray = new JSONArray(data);
+            //JSONObject jsonResult=new JSONObject(data);  //因為url格式為array，所以不能用object來做
+
+            //取道一筆資料中的一個value
+            for(int i=0;i<jsonArray.length();i++) {
+                //放一筆資料中的多個key
+                HashMap<String, Object> map = new HashMap<String, Object>();
+                map.put("id", jsonArray.getJSONObject(i).getString("sno"));
+                map.put("name", jsonArray.getJSONObject(i).getString("sna"));
+                map.put("area", jsonArray.getJSONObject(i).getString("sarea"));
+                map.put("addr", jsonArray.getJSONObject(i).getString("ar"));
+                list.add(map);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+
+
+}
 

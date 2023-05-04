@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class jsonActivity extends AppCompatActivity {
     //設定ListView 資料
     private String[] jsonResult=new String[]{};
-    private static String[] strArray ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,15 +21,14 @@ public class jsonActivity extends AppCompatActivity {
         //getJsonFromUrl必須是static
         //沒有建立物件之前，non static的東西並不存在，但是static會一直存在
         try {
+
+            //只需要接收string array
             jsonResult=JsonUtils.getJsonFromUrl();
-            Log.d("logggg", jsonResult[1]);
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        while(jsonResult!=null){
-
-        }
 
         //顯示json資料
 
@@ -38,7 +37,7 @@ public class jsonActivity extends AppCompatActivity {
 //        ListView jsonListView=findViewById(R.id.jsonListView);
 //        //建立adapter，把資料放到ListView上面
 //        ArrayAdapter<String> adapter=
-//                new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,strArray);
+//                new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,jsonResult);
 //        jsonListView.setAdapter(adapter);
 
 
