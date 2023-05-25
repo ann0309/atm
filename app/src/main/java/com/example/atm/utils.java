@@ -1,24 +1,24 @@
 package com.example.atm;
 
+import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
+import android.content.DialogInterface;
+
+import androidx.appcompat.app.AlertDialog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class JsonUtils {
+
+public class utils {
     //存放轉換轉換至string的資料
     static String data="";
-    //建立接回傳資料的陣列
 
 
     //從json檔案中取到字串
@@ -62,8 +62,6 @@ public class JsonUtils {
         return result;
     }
 
-
-
     //InputStream(Json Url資料) 轉字串
     //資料為JsonArray形式，數組
     //JsonArray裡有很多個JsonObject
@@ -91,13 +89,14 @@ public class JsonUtils {
         return data;
     }
 
-    //拿到轉換成string型態的json資料後，取得多筆資料的key的value
+    //拿到轉換成string型態的json資料後，轉換多筆資料的key的value
     public static ArrayList<HashMap<String, Object>> getJsonValue(String data) {
         //放多筆資料
         ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 
         //把result裡面的東西轉成jsonobject
         try {
+
             //存放轉換成jsonArray和JsonObject的json字串
             JSONArray jsonArray = new JSONArray(data);
             //JSONObject jsonResult=new JSONObject(data);  //因為url格式為array，所以不能用object來做
@@ -117,6 +116,9 @@ public class JsonUtils {
         }
         return list;
     }
+
+
+
 
 
 
