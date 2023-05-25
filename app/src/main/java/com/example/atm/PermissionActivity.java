@@ -97,7 +97,6 @@ public class PermissionActivity extends AppCompatActivity {
 
             //若已取得權限
             if(permission==PackageManager.PERMISSION_GRANTED){
-//                Toast.makeText(PermissionActivity.this,"已取得權限",Toast.LENGTH_SHORT).show();
                 ScrollView scrollView=findViewById(R.id.scrollView);
 
 //                TextView showResult=findViewById(R.id.permission_result);
@@ -119,9 +118,6 @@ public class PermissionActivity extends AppCompatActivity {
                         case R.id.bluetooth:
                             showResult.append("已取得藍芽權限\n");
                             break;
-//                        default:
-//                            showResult.append("沒有打勾勾喔\n");
-//                            break;
                     }
                 scrollView.fullScroll(ScrollView.FOCUS_DOWN);
 

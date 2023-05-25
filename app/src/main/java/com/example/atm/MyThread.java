@@ -3,8 +3,8 @@
 
 package com.example.atm;
 
-import static com.example.atm.JsonUtils.convertStreamToString;
-import static com.example.atm.JsonUtils.data;
+import static com.example.atm.utils.convertStreamToString;
+import static com.example.atm.utils.data;
 
 import android.util.Log;
 import java.io.IOException;
@@ -16,7 +16,9 @@ import java.util.HashMap;
 
 
 public class MyThread implements Runnable {
-    private String[] result;
+
+    //存取hashmap arraylist轉型成string的資料
+    String[] result;
 
     // 在這裡執行需要在線程中完成的工作
     public void run() {
@@ -42,17 +44,18 @@ public class MyThread implements Runnable {
                 //json url轉為String
                 data = convertStreamToString(inputStream);
 
-                //getJsonValue回傳陣列
+                //存getJsonValue回傳的 hashmap型態的arraylist陣列
                 ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+                list = utils.getJsonValue(data);
 
-                list = JsonUtils.getJsonValue(data);
 
-                for (int i = 0; i < 30; i++) {
+
+                result = new String[list.size()];
+                for (int i = 0; i < list.size(); i++) {
                     Log.d("loggggg", (String) list.get(i).get("id"));
-
-//                    result[i]= (String) list.get(i).get("id");
-
+                    result[i]=  list.get(i).get("id").toString();
                 }
+
                 inputStream.close();
             }
         }
@@ -62,7 +65,7 @@ public class MyThread implements Runnable {
         }
 
         // 設置返回值
-        result = result;
+//        result = result;
     }
 
 

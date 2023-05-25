@@ -7,13 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -21,7 +16,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.atm.databinding.ActivityMainBinding;
-import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
 //            launcher.launch(intent);
 //        }
         getSharedPreferences("atm", MODE_PRIVATE);
-
-
 
         setupFunctions();
         //建置RecycleView，連接adapter&RecycleView
@@ -159,6 +151,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(webviewIntent);
                 break;
             case "guard開關":
+                Intent guardPage=new Intent(this, GuardActivity.class);
+                startActivity(guardPage);
                 break;
             case "小工具":
                 break;

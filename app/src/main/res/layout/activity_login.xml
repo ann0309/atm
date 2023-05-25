@@ -28,17 +28,6 @@
         app:layout_constraintBottom_toTopOf="@+id/inputPassword"
         app:layout_constraintStart_toStartOf="@+id/inputPassword" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="202dp"
-        android:layout_height="166dp"
-        android:layout_marginTop="444dp"
-        android:src="@drawable/creditcard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.898"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/account"
         android:layout_width="wrap_content"
@@ -106,5 +95,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="20dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="116dp"
+        android:text="指紋登入"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toEndOf="@+id/loginbtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
