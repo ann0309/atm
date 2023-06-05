@@ -12,6 +12,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.atm.arxan.Invocation;
+import com.example.atm.arxan.TamperAction;
 
 import java.util.ArrayList;
 
@@ -22,8 +23,9 @@ public class GuardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guard);
-        atm.getInstance().setCurrentActivity(this);//???
-        Context context=atm.getInstance().getCurrentActivity();
+
+//        atm.getInstance().setCurrentActivity(this);//???
+//        Context context=atm.getInstance().getCurrentActivity();
         showCheckResult=findViewById(R.id.showCheckResult);
 
         Button check=findViewById(R.id.checkcheck);
@@ -53,6 +55,7 @@ public class GuardActivity extends AppCompatActivity {
                     switch (id){
                         case R.id.rdg:
                             Invocation.invoRdg();
+                            TamperAction.rdgTamper();
                             break;
                         case R.id.fdg:
                             Invocation.invoFdg();

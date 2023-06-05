@@ -11,9 +11,11 @@
 
 
 
-<!--    自定義application來取得context，加入android:name=".atm"，這樣起始的會先是atm這個class-->
+<!--    自定義application-atm這個class來取得context，加入android:name=".atm"，這樣起始的會先是atm這個class-->
+<!--    如果不加上android:name=".atm"，app就沒辦法進到atm這個application class onCreate裡，也就沒辦法取得當前的activity-->
     <application
         android:allowBackup="true"
+        android:name=".atm"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"

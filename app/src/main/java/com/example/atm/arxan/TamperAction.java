@@ -16,7 +16,6 @@ public class TamperAction {
         //取得目前所在Activity 的context
 
         Activity currentActivity = atm.getInstance().getCurrentActivity();
-
         if(currentActivity!=null){//在mainThread上面執行
             currentActivity.runOnUiThread(new Runnable() {
                 @Override
@@ -29,9 +28,8 @@ public class TamperAction {
                             .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    System.exit(0);
+//                                    System.exit(0);
                                 }
-
                             }).create().show();
 
                 }
