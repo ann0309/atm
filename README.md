@@ -108,3 +108,11 @@ firebase permission denied
 }
 
 https://stackoverflow.com/questions/40942493/android-firebase-database-error-permission-denied
+
+
+
+
+------------------------------------------------------------------------
+取得當前所在的activity
+https://blog.csdn.net/wusejiege6/article/details/100848791
+
