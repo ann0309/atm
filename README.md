@@ -128,3 +128,4 @@ singleton 單例
 https://xnfood.com.tw/android-singleton/
 
 ------------------------------------------------------------------------
+weakReference：隨時有可能被gc回收
