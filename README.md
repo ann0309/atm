@@ -116,3 +116,15 @@ https://stackoverflow.com/questions/40942493/android-firebase-database-error-per
 取得當前所在的activity
 https://blog.csdn.net/wusejiege6/article/details/100848791
 
+
+singleton 單例
+當一個東西只需要產生一次，不用每次要使用時就呼叫一次時
+透過自訂一個控管建構子的類別方法，我們可以判斷此類別的物件實體是否已經被建立過
+如果已經建立了，就不會再建立
+使用singleton可以避免資源浪費
+
+創造一個class 裡面會有一個private的建構子
+並且定義一個static的物件 用來存此類別所宣告出的物件
+https://xnfood.com.tw/android-singleton/
+
+------------------------------------------------------------------------
